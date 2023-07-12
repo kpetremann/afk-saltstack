@@ -1,0 +1,5 @@
+-rrequirements.txt
+fastapi
+requests
+uvicorn
+salt
