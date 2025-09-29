@@ -71,6 +71,7 @@ router bgp 65000
         no neighbor 2001:db8::102 activate
         no neighbor 2001:db8::102 soft-reconfiguration inbound
         no neighbor 2001:db8::102 send-community
+    exit-address-family
     !
     address-family ipv6 unicast
         neighbor RA02.01:PG-TOR route-map RM-LAN-IN in
@@ -105,3 +106,4 @@ router bgp 65000
         neighbor 2001:db8::102 activate
         neighbor 2001:db8::102 soft-reconfiguration inbound
         neighbor 2001:db8::102 send-community
+    exit-address-family
