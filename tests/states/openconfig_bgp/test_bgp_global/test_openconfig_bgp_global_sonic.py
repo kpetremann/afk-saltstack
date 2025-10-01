@@ -20,10 +20,12 @@ def test__generate_global_configuration_minimal(mocker):
         "address-family ipv4 unicast\n"
         "  no maximum-paths\n"
         "  no maximum-paths ibgp\n"
+        "  exit-address-family\n"
         "!\n"
         "address-family ipv6 unicast\n"
         "  no maximum-paths\n"
-        "  no maximum-paths ibgp"
+        "  no maximum-paths ibgp\n"
+        "exit-address-family"
     )
 
 
@@ -47,10 +49,12 @@ def test__generate_global_configuration_minimal2(mocker):
         "address-family ipv4 unicast\n"
         "  no maximum-paths\n"
         "  no maximum-paths ibgp\n"
+        "  exit-address-family\n"
         "!\n"
         "address-family ipv6 unicast\n"
         "  no maximum-paths\n"
-        "  no maximum-paths ibgp"
+        "  no maximum-paths ibgp\n"
+        "exit-address-family"
     )
 
 
@@ -79,10 +83,12 @@ def test__generate_global_configuration_full(mocker):
         "address-family ipv4 unicast\n"
         "  maximum-paths 128\n"
         "  maximum-paths ibgp 128\n"
+        "exit-address-family\n"
         "!\n"
         "address-family ipv6 unicast\n"
         "  maximum-paths 128\n"
-        "  maximum-paths ibgp 128"
+        "  maximum-paths ibgp 128\n"
+        "exit-address-family"
     )
 
 
@@ -124,13 +130,16 @@ def test__generate_global_configuration_aggregates_and_networks(mocker):
         "address-family ipv4 unicast\n"
         "  maximum-paths 128\n"
         "  maximum-paths ibgp 128\n"
+        "exit-address-family\n"
         "!\n"
         "address-family ipv6 unicast\n"
         "  maximum-paths 128\n"
         "  maximum-paths ibgp 128\n"
+        "exit-address-family\n"
         "!\n"
         "address-family ipv4 unicast\n"
         "  aggregate-address 10.0.8.0/24\n"
         "  network 10.0.8.0/24\n"
-        "  network 10.0.1.0/31"
+        "  network 10.0.1.0/31\n"
+        "exit-address-family"
     )

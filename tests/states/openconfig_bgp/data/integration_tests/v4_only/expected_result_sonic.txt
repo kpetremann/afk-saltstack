@@ -27,6 +27,7 @@ router bgp 65000
         neighbor 192.0.2.2 activate
         neighbor 192.0.2.2 soft-reconfiguration inbound
         neighbor 192.0.2.2 send-community
+    exit-address-family
     !
     address-family ipv6 unicast
         no neighbor 192.0.2.1 route-map * in
@@ -41,3 +42,4 @@ router bgp 65000
         no neighbor 192.0.2.2 activate
         no neighbor 192.0.2.2 soft-reconfiguration inbound
         no neighbor 192.0.2.2 send-community
+    exit-address-family

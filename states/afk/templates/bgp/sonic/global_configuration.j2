@@ -32,18 +32,22 @@ no bgp graceful-restart restart-time
 address-family ipv4 unicast
   maximum-paths {{ ebgp_maximum_paths }}
   maximum-paths ibgp {{ ibgp_maximum_paths }}
+exit-address-family
 !
 address-family ipv6 unicast
   maximum-paths {{ ebgp_maximum_paths }}
   maximum-paths ibgp {{ ibgp_maximum_paths }}
+exit-address-family
 {% else %}
 address-family ipv4 unicast
   no maximum-paths
   no maximum-paths ibgp
+  exit-address-family
 !
 address-family ipv6 unicast
   no maximum-paths
   no maximum-paths ibgp
+exit-address-family
 {% endif %}
 
 {% set aggregates = deep_get(global_safi_configs, "IPV4_UNICAST", "config", "aggregates") %}
@@ -61,6 +65,7 @@ address-family ipv4 unicast
   network {{ prefix }}
     {% endfor %}
   {% endif %}
+exit-address-family
 {% endif %}
 {% set aggregates = deep_get(global_safi_configs, "IPV6_UNICAST", "config", "aggregates") %}
 {% set networks = deep_get(global_safi_configs, "IPV6_UNICAST", "config", "redistributed-networks") %}
@@ -77,4 +82,5 @@ address-family ipv6 unicast
   network {{ prefix }}
     {% endfor %}
   {% endif %}
+exit-address-family
 {% endif %}
