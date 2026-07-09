@@ -7,6 +7,7 @@ pytest-benchmark
 pytest-mock
 ruff
 salt==3004.2
+setuptools<81
 tox
 
 # pin salt==3004.2 dependencies, as pip install salt does not install deps anymore
@@ -23,6 +24,6 @@ pip==22.0.4
 psutil==7.0.0
 pycryptodomex==3.22.0
 PyYAML==6.0.2
-pyzmq==21.0.2
+pyzmq==25.1.2
 requests==2.32.3
 urllib3==2.3.0
