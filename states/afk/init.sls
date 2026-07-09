@@ -21,3 +21,9 @@ clear_bgp_soft:
         - onchanges:
             - openconfig_bgp: bgp_sessions
             - openconfig_routing_policy: route_policies
+
+save_config:
+    afk_bgp.save_config:
+        - onchanges:
+            - openconfig_bgp: bgp_sessions
+            - openconfig_routing_policy: route_policies
