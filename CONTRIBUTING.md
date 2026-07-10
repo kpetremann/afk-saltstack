@@ -13,8 +13,8 @@ The reason for this is simple: we are working very actively on the subject, and 
 Please use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#summary).
 
 Please ensure you have run the following before pushing a commit:
-  * `black` and `isort` (or `invoke reformat`)
-  * `pylama` to run all linters
+  * `ruff format` to format the code
+  * `ruff check` to run all linters
 
 About the logic:
   * implementation must be done for all Network OS supported, with the same behavior

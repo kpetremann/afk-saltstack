@@ -102,9 +102,9 @@ def _eos_extra_info():
 
     for peer_group_name, group_info in bgp_config.items():
         for remote, peer_info in group_info.get("neighbors", {}).items():
-            peer_group_name = None if peer_group_name == "_" else peer_group_name
+            name = None if peer_group_name == "_" else peer_group_name
             result[remote] = {
-                "peer-group": peer_group_name,
+                "peer-group": name,
                 "description": peer_info.get("description"),
             }
 
