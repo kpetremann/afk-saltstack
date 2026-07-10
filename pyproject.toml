@@ -1,2 +1,49 @@
-[tool.black]
+[tool.ruff]
 line-length = 100
+target-version = "py311"
+
+# Salt states written in pure Python use the ".sls" extension.
+extend-include = ["*.sls"]
+
+# Exclude directories
+exclude = [
+    ".tox",
+    "build",
+    "env",
+    ".env",
+    "venv",
+    ".venv",
+]
+
+[tool.ruff.lint]
+# Enable the following rule sets:
+# E/W - pycodestyle errors and warnings
+# F - pyflakes
+# D - pydocstyle
+# PL - pylint
+select = ["E", "W", "F", "D", "PL"]
+
+ignore = [
+    "F821",     # Undefined name, because of __opts__, __context__, __salt__ etc...
+    "D417",     # Missing argument descriptions in the docstring
+    "PLR0915",  # Too many statements
+    "PLR0912",  # Too many branches
+    "PLR2004",  # Magic value used in comparison
+]
+
+[tool.ruff.format]
+# Use Black-compatible formatting
+quote-style = "double"
+indent-style = "space"
+
+[tool.ruff.lint.per-file-ignores]
+# Checks irrelevant for test fixtures and classes
+"**/test_*.py" = [
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.pylint]
+# Additional pylint configuration
+max-args = 10  # Allow more arguments to match R0913 ignore
