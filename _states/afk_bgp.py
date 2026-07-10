@@ -31,3 +31,19 @@ def clear_soft_all(name):
     ret["comment"] = res
 
     return ret
+
+
+def save_config(name):
+    """Execute a clear soft on all neighbors on all directions."""
+    nos = _get_os()
+    ret = {"name": name, "result": False, "changes": {}, "comment": ""}
+
+    if nos != "sonic":
+        raise NotImplementedError("Network OS not supported")
+    res = __salt__["cmd.run"]("vtysh -w")
+    ret["changes"]["executed"] = "vtysh -w"
+    ret["result"] = __context__["retcode"] == 0
+
+    ret["comment"] = res
+
+    return ret
